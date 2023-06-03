@@ -4,6 +4,7 @@ Keep the game challenging while keepInventory is enabled.
 ## Features
 - Drop 1/5 of EXP on death
 - Drop half of each ingredient on death
+- Damage main/offhand tools
 
 ## Usage
 You must enable keepInventory for the mod to take effect.
