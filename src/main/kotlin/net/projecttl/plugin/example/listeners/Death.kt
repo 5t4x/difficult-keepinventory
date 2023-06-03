@@ -1,7 +1,11 @@
 package net.projecttl.plugin.example.listeners
 
+import com.github.jikoo.planarwrappers.util.Experience
 import net.projecttl.plugin.example.INGREDIENTS
+import org.bukkit.entity.EntityType
+import org.bukkit.entity.ExperienceOrb
 import org.bukkit.entity.LivingEntity
+import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.PlayerDeathEvent
@@ -26,12 +30,25 @@ class Death : Listener {
         return item.damage(takeDamage, livingEntity)
     }
 
+    /**
+     * Remove 1/5 of the player's EXP
+     */
+    private fun dropEXP(player: Player) {
+        val exp = Experience.getExp(player)
+        val dropEXP = floor((exp / 5).toDouble()).toInt()
+        Experience.changeExp(player, -dropEXP)
+        val orb = player.world.spawnEntity(player.location, EntityType.EXPERIENCE_ORB) as ExperienceOrb;
+        orb.experience = dropEXP
+    }
+
     @EventHandler
     fun onDeath(event: PlayerDeathEvent) {
         // only execute logic if they're keeping their inventory
         if (event.keepInventory) {
             event.player.inventory.setItemInMainHand(damageMain(event.player.inventory.itemInMainHand, event.player))
             event.player.inventory.setItemInOffHand(damageMain(event.player.inventory.itemInOffHand, event.player))
+
+            dropEXP(event.player)
 
             for (item in event.player.inventory) {
                 if (item == null) continue
