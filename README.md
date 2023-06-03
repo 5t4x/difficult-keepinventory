@@ -1,5 +1,9 @@
-# Kotlin Bukkit Template
-코틀린으로 작성된 페이퍼 플러그인 템플릿 입니다.
+# Difficult keepInventory
+Keep the game challenging while keepInventory is enabled.
+
+## Features
+- Partial XP drop
+- Only drop half of each ingredient
 
 ## 사용된 라이브러리
 - [Kommand](https://github.com/monun/kommand)
