@@ -2,8 +2,11 @@
 Keep the game challenging while keepInventory is enabled.
 
 ## Features
-- Partial XP drop
-- Only drop half of each ingredient
+- Drop 1/5 of EXP on death
+- Drop half of each ingredient on death
+
+## Usage
+You must enable keepInventory for the mod to take effect.
 
 ## Used Libraries
 - [Kommand](https://github.com/monun/kommand)
