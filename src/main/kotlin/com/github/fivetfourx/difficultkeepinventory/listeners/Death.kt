@@ -1,7 +1,7 @@
 package com.github.fivetfourx.difficultkeepinventory.listeners
 
+import com.github.fivetfourx.difficultkeepinventory.CreativeTabs
 import com.github.jikoo.planarwrappers.util.Experience
-import com.github.fivetfourx.difficultkeepinventory.INGREDIENTS
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.ExperienceOrb
 import org.bukkit.entity.LivingEntity
@@ -37,7 +37,7 @@ class Death : Listener {
         val exp = Experience.getExp(player)
         val dropEXP = floor((exp / 5).toDouble()).toInt()
         Experience.changeExp(player, -dropEXP)
-        val orb = player.world.spawnEntity(player.location, EntityType.EXPERIENCE_ORB) as ExperienceOrb;
+        val orb = player.world.spawnEntity(player.location, EntityType.EXPERIENCE_ORB) as ExperienceOrb
         orb.experience = dropEXP
     }
 
@@ -56,8 +56,8 @@ class Death : Listener {
                 // if there's only one, we shouldn't have to drop it
                 if (item.amount == 1) continue
 
-                // only drop ingredients
-                if (INGREDIENTS.contains(item.type.name)) {
+                // only drop items from certain creative tabs
+                if (CreativeTabs.ingredients.contains(item.type.name) || CreativeTabs.foodAndDrinks.contains(item.type.name)) {
                     // drop half the stack
                     val newAmount = round((item.amount / 2).toDouble()).toInt()
                     val dropAmount = item.amount - newAmount
