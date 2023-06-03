@@ -14,7 +14,7 @@ class Death : Listener {
             if (item == null) continue
 
             // if there's only one, we shouldn't have to drop it
-            if (item.amount === 1) continue
+            if (item.amount == 1) continue
 
             // only drop ingredients
             if (!INGREDIENTS.contains(item.type.name)) continue
