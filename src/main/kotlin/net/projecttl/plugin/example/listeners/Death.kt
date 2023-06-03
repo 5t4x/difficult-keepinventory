@@ -1,5 +1,6 @@
 package net.projecttl.plugin.example.listeners
 
+import net.projecttl.plugin.example.INGREDIENTS
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.PlayerDeathEvent
@@ -15,7 +16,8 @@ class Death : Listener {
             // if there's only one, we shouldn't have to drop it
             if (item.amount === 1) continue
 
-            // TODO: only drop ingredients, nothing else
+            // only drop ingredients
+            if (!INGREDIENTS.contains(item.type.name)) continue
 
             // drop half the stack
             val newAmount = round((item.amount / 2).toDouble()).toInt()
