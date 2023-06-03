@@ -1,4 +1,4 @@
-package net.projecttl.plugin.example
+package com.github.fivetfourx.difficultkeepinventory
 
 // src/1.19.4/client/net/minecraft/world/item/CreativeModeTabs.java
 // gpt3.5-turbo

@@ -1,6 +1,6 @@
-package net.projecttl.plugin.example
+package com.github.fivetfourx.difficultkeepinventory
 
-import net.projecttl.plugin.example.listeners.Death
+import com.github.fivetfourx.difficultkeepinventory.listeners.Death
 import org.bukkit.plugin.java.JavaPlugin
 
 lateinit var instance: CorePlugin

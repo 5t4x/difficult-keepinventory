@@ -1,7 +1,7 @@
-package net.projecttl.plugin.example.listeners
+package com.github.fivetfourx.difficultkeepinventory.listeners
 
 import com.github.jikoo.planarwrappers.util.Experience
-import net.projecttl.plugin.example.INGREDIENTS
+import com.github.fivetfourx.difficultkeepinventory.INGREDIENTS
 import org.bukkit.entity.EntityType
 import org.bukkit.entity.ExperienceOrb
 import org.bukkit.entity.LivingEntity
